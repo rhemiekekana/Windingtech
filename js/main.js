@@ -137,7 +137,7 @@ function buildHeaderFooter() {
             </div>
           </div>
           <div class="site-footer__meta">
-            <span>© <span data-year></span> Winding Tech. All rights reserved.</span>
+            <span>© <span data-year></span> Winding Technologies. All rights reserved.</span>
             <span>Designed and powered by Arcae Business Solutions</span>
           </div>
         </div>
