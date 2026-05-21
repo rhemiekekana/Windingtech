@@ -24,21 +24,17 @@ function buildHeaderFooter() {
   const current = getCurrentPageKey();
   const services = {
     col1: {
-      title: "Mechanical & Infrastructure",
+      title: "Core services",
       items: [
-        { key: "services/motors.html", label: "Motors", href: `${base}services/motors.html` },
-        { key: "services/pumps.html", label: "Pumps", href: `${base}services/pumps.html` },
-        { key: "services/automation.html", label: "Automation", href: `${base}services/automation.html` },
-        { key: "services/electrification.html", label: "Electrification", href: `${base}services/electrification.html` },
+        { key: "services/electrification.html", label: "Power Infrastructure & Distribution", href: `${base}services/electrification.html` },
+        { key: "services/electrical-automation.html", label: "Industrial Automation & Motor Control", href: `${base}services/electrical-automation.html` },
       ],
     },
     col2: {
-      title: "Electrical Power",
+      title: "Support services",
       items: [
-        { key: "services/transformers.html", label: "Transformers", href: `${base}services/transformers.html` },
-        { key: "services/substations.html", label: "Substations", href: `${base}services/substations.html` },
-        { key: "services/power-analysis.html", label: "Power Systems Analysis", href: `${base}services/power-analysis.html` },
-        { key: "services/switch-gears.html", label: "Switch gears", href: `${base}services/switch-gears.html` },
+        { key: "services/mechanical-equipment.html", label: "Mechanical & Fluid Handling", href: `${base}services/mechanical-equipment.html` },
+        { key: "services/industrial-servicing.html", label: "Professional & Technical Services", href: `${base}services/industrial-servicing.html` },
       ],
     },
   };
@@ -116,32 +112,33 @@ function buildHeaderFooter() {
         <div class="u-container">
           <div class="site-footer__grid">
             <div>
-              <h3 class="site-footer__title">Winding Tech</h3>
-              <p class="site-footer__muted">Reliability-first industrial support for electrical, automation, and mechanical equipment—planned maintenance and rapid response when uptime matters.</p>
+              <h3 class="site-footer__title">Winding Technologies</h3>
+              <p class="site-footer__muted">We provide electrical automation/control systems, mechanical equipment, and servicing. All our procedures and systems are CERTEX and ISO 9001 approved to ensure your satisfaction. </p>
               <ul class="site-footer__links">
                 <li><a href="${base}contact.html">Request a call-back</a></li>
-                <li><a href="${base}services/industrial-servicing.html">Service coverage</a></li>
+                <li><a href="${base}about.html">About Us</a></li>
               </ul>
             </div>
             <div>
               <h3 class="site-footer__title">Services</h3>
               <ul class="site-footer__links">
-                <li><a href="${base}services/electrical-automation.html">Electrical & Automation</a></li>
-                <li><a href="${base}services/mechanical-equipment.html">Mechanical Equipment</a></li>
-                <li><a href="${base}services/industrial-servicing.html">Industrial Servicing</a></li>
+                <li><a href="${base}services/electrification.html">Power Infrastructure & Distribution</a></li>
+                <li><a href="${base}services/electrical-automation.html">Industrial Automation & Motor Control</a></li>
+                <li><a href="${base}services/mechanical-equipment.html">Mechanical & Fluid Handling</a></li>
+                <li><a href="${base}services/industrial-servicing.html">Professional & Technical Services</a></li>
               </ul>
             </div>
             <div>
               <h3 class="site-footer__title">Quick Contact</h3>
               <ul class="site-footer__links">
                 <li><a href="${base}contact.html">Lead form (3 steps)</a></li>
-                <li><a href="${base}about.html">Company profile</a></li>
+                <li><a href="${base}docs/COMPANY_PROFILE_2026.pdf" target="_blank" rel="noopener noreferrer">Company profile</a></li>
               </ul>
             </div>
           </div>
           <div class="site-footer__meta">
             <span>© <span data-year></span> Winding Tech. All rights reserved.</span>
-            <span>Built for performance • Vanilla HTML/CSS/JS</span>
+            <span>Designed and powered by Arcae Business Solutions</span>
           </div>
         </div>
       </footer>

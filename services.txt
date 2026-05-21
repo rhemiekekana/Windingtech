@@ -33,3 +33,11 @@ These services represent your expertise and your "boots on the ground" capabilit
 Electrical consulting: Professional engineering, system design, and auditing.
 
 Field services: On-site testing, commissioning, and emergency technical repairs.
+
+Modify the services dropdown menu to only have the following services:
+1. Power Infrastructure & Distribution
+2. Industrial Automation & Motor Control
+3. Mechanical & Fluid Handling
+4. Professional & Technical Services
+
+Then update the services pages so that there's only four coresponding to the relevant service
