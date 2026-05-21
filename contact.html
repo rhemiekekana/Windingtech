@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | Winding Tech</title>
+    <meta name="description" content="Request a quote from Winding Tech using a fast 3-step lead form with client-side validation." />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div data-site-header></div>
+
+    <main>
+      <section class="page-hero">
+        <div class="u-container">
+          <h1 class="page-hero__title">Request a quote</h1>
+          <p class="page-hero__lead">A short 3-step form. We’ll confirm requirements and respond with a practical plan.</p>
+        </div>
+      </section>
+
+      <section class="u-section">
+        <div class="u-container">
+          <div class="u-grid" style="grid-template-columns: 1.05fr .95fr; align-items:start;">
+            <article class="u-card" data-reveal>
+              <div class="u-card__inner">
+                <div class="stepper" aria-label="Form steps">
+                  <div class="stepper__step stepper__step--active" data-stepper-step>
+                    <span class="stepper__num">1</span> Company Info
+                  </div>
+                  <div class="stepper__step" data-stepper-step>
+                    <span class="stepper__num">2</span> Service Details
+                  </div>
+                  <div class="stepper__step" data-stepper-step>
+                    <span class="stepper__num">3</span> Message
+                  </div>
+                </div>
+
+                <form class="form" data-multistep-form novalidate>
+                  <div class="toast" role="status" aria-live="polite" data-form-toast></div>
+
+                  <!-- Step 1 -->
+                  <section data-form-step>
+                    <h2 class="section-head__title" style="margin: 14px 0 6px;">Company Info</h2>
+                    <p class="section-head__lead" style="margin:0 0 12px;">So we can respond fast and accurately.</p>
+
+                    <div class="form__grid">
+                      <div class="field">
+                        <label class="field__label" for="company">Company</label>
+                        <input class="field__control" id="company" name="Company" type="text" autocomplete="organization" data-required />
+                        <div class="field__error" data-field-error>Company is required.</div>
+                      </div>
+
+                      <div class="field">
+                        <label class="field__label" for="contact">Contact person</label>
+                        <input class="field__control" id="contact" name="Contact person" type="text" autocomplete="name" data-required />
+                        <div class="field__error" data-field-error>Contact person is required.</div>
+                      </div>
+
+                      <div class="field">
+                        <label class="field__label" for="email">Email</label>
+                        <input class="field__control" id="email" name="Email" type="email" autocomplete="email" inputmode="email" data-required />
+                        <div class="field__error" data-field-error>Enter a valid email address.</div>
+                      </div>
+
+                      <div class="field">
+                        <label class="field__label" for="phone">Phone</label>
+                        <input class="field__control" id="phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" data-required />
+                        <div class="field__error" data-field-error>Phone is required.</div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Step 2 -->
+                  <section data-form-step hidden>
+                    <h2 class="section-head__title" style="margin: 14px 0 6px;">Service Details</h2>
+                    <p class="section-head__lead" style="margin:0 0 12px;">Pick the closest match so we route your request correctly.</p>
+
+                    <div class="form__grid">
+                      <div class="field">
+                        <label class="field__label" for="service">Service category</label>
+                        <select class="field__control" id="service" name="Service category" data-required>
+                          <option value="">Select…</option>
+                          <option>Electrical & Automation</option>
+                          <option>Mechanical Equipment</option>
+                          <option>Industrial Servicing</option>
+                        </select>
+                        <div class="field__error" data-field-error>Service category is required.</div>
+                      </div>
+
+                      <div class="field">
+                        <label class="field__label" for="urgency">Urgency</label>
+                        <select class="field__control" id="urgency" name="Urgency" data-required>
+                          <option value="">Select…</option>
+                          <option>Planned / Preventive</option>
+                          <option>Soon (1–3 days)</option>
+                          <option>Urgent (same day)</option>
+                        </select>
+                        <div class="field__error" data-field-error>Urgency is required.</div>
+                      </div>
+
+                      <div class="field">
+                        <label class="field__label" for="site">Site / location</label>
+                        <input class="field__control" id="site" name="Site / location" type="text" autocomplete="off" data-required />
+                        <div class="field__error" data-field-error>Site / location is required.</div>
+                      </div>
+
+                      <div class="field">
+                        <label class="field__label" for="equipment">Equipment / system</label>
+                        <input class="field__control" id="equipment" name="Equipment / system" type="text" autocomplete="off" data-required />
+                        <div class="field__error" data-field-error>Equipment / system is required.</div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Step 3 -->
+                  <section data-form-step hidden>
+                    <h2 class="section-head__title" style="margin: 14px 0 6px;">Message</h2>
+                    <p class="section-head__lead" style="margin:0 0 12px;">Describe symptoms, constraints, and what “good” looks like.</p>
+
+                    <div class="field">
+                      <label class="field__label" for="message">What do you need help with?</label>
+                      <textarea class="field__control" id="message" name="Message" rows="6" data-required></textarea>
+                      <div class="field__error" data-field-error>Message is required.</div>
+                    </div>
+                  </section>
+
+                  <div class="form-actions">
+                    <div class="form-actions__left">
+                      <button class="btn" type="button" data-form-prev>Back</button>
+                    </div>
+                    <div class="form-actions__right">
+                      <button class="btn btn--primary" type="button" data-form-next>Continue</button>
+                      <button class="btn btn--primary" type="submit" data-form-submit hidden>Submit request</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </article>
+
+            <aside class="u-card" data-reveal>
+              <div class="u-card__inner">
+                <h2 class="section-head__title" style="margin:0 0 10px;">What happens next</h2>
+                <ul class="capabilities__list" style="margin:0;">
+                  <li>We confirm scope and safety requirements.</li>
+                  <li>We propose a practical plan and timeline.</li>
+                  <li>We execute with documentation and handover.</li>
+                </ul>
+                <div class="u-card" style="margin-top: 14px; box-shadow:none;">
+                  <div class="u-card__inner">
+                    <span class="u-pill">Fast routing</span>
+                    <p class="service-card__text" style="margin-top: 10px;">
+                      Select a service category and urgency to help us prioritize the right team.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>
+
