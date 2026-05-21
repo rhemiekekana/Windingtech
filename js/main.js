@@ -57,8 +57,11 @@ function buildHeaderFooter() {
         <div class="u-container site-header__bar">
           <a class="brand" href="${base}index.html" aria-label="Winding Tech home">
             <img class="brand__logo" src="${base}assets/img/winding-tech-logo.png" alt="Winding Tech Logo" />
-            
-          </a>
+            <span class="brand__text">
+              <span class="brand__name">Winding Technologies</span>
+              <span class="brand__tagline">Electrical and Mechanical Engineering</span>
+            </span>
+              </a>
 
           <nav class="nav" aria-label="Primary">
             <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
