@@ -511,6 +511,43 @@ button, input, textarea{ font: inherit; }
   display: block;
 }
 
+/* Background rotating gears (fixed, parallax effect) */
+
+.bg-container{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: visible;
+}
+.bg-gear{
+  position: fixed;
+  opacity: 0.15;
+  transition: opacity .22s linear, transform .12s linear;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,.06));
+}
+.bg-gear--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.gear-large{
+  width: 420px;
+  left: 6vw;
+  top: 12vh;
+}
+.gear-small{
+  width: 220px;
+  right: 6vw;
+  bottom: 12vh;
+}
+
+@media (max-width: 768px){
+  .gear-large{ width: 300px; left: 3vw; top: 8vh; }
+  .gear-small{ width: 140px; right: 3vw; bottom: 8vh; }
+}
+
 .service-card__title{
   margin: 0 0 6px;
   font-weight: 850;
@@ -928,3 +965,27 @@ body{ overflow-x: hidden; }
     display: none;
   }
 }
+
+
+/* Content layer styling */
+.content-layer {
+  position: relative;
+  z-index: 1;
+}
+
+/* RESPONSIVE SETUP (Mobile Optimization) */
+@media (max-width: 768px) {
+  /* Hide the smaller gear entirely on mobile to save performance */
+  .gear-small {
+    display: none;
+  }
+  
+  /* Shrink the large gear so it doesn't crowd small screens */
+  .gear-large {
+    width: 300px;
+    height: 300px;
+    bottom: -80px;
+    right: -80px;
+  }
+}
+

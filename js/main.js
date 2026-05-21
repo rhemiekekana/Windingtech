@@ -215,6 +215,46 @@ function wireScrollReveal() {
   });
 }
 
+function injectGearBackground() {
+  if (document.querySelector(".bg-container")) return;
+  const base = getBasePath();
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    `
+      <div class="bg-container">
+        <img src="${base}assets/img/gear.svg" alt="Large Gear" class="bg-gear gear-large" id="gearLarge" />
+        <img src="${base}assets/img/gear.svg" alt="Small Gear" class="bg-gear gear-small" id="gearSmall" />
+      </div>
+    `
+  );
+}
+
+function wireGearVisibility() {
+  const gearElements = document.querySelectorAll(".bg-gear");
+  if (!gearElements.length) return;
+
+  const sections = Array.from(document.querySelectorAll("main section, section"));
+  if (!sections.length) return;
+
+  const visibleSections = new Set();
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          visibleSections.add(entry.target);
+        } else {
+          visibleSections.delete(entry.target);
+        }
+      }
+      const shouldHide = visibleSections.size === 0;
+      gearElements.forEach((gear) => gear.classList.toggle("bg-gear--hidden", shouldHide));
+    },
+    { threshold: [0, 0.01] }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
 function setFieldValidity(fieldEl, valid, message) {
   if (!fieldEl) return;
   fieldEl.classList.toggle("field--invalid", !valid);
@@ -325,5 +365,56 @@ document.addEventListener("DOMContentLoaded", () => {
   wireNavToggle();
   wireScrollReveal();
   wireMultiStepForm();
+  injectGearBackground();
+  wireGearVisibility();
 });
 
+
+/* Rotating gears */
+
+let ticking = false;
+
+// Gear Ratio Configuration
+// The small gear is half the size of the large gear (250px vs 500px),
+// so it must spin exactly twice as fast in the opposite direction.
+const LARGE_GEAR_MAX_ROTATION = 360; 
+const SMALL_GEAR_MAX_ROTATION = -720; 
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+      const largeGear = document.getElementById('gearLarge');
+      const smallGear = document.getElementById('gearSmall');
+
+      if (maxScroll > 0) {
+        const scrollFraction = scrollTop / maxScroll;
+        const isMobile = window.innerWidth <= 768;
+
+        // Fade toward page end
+        let currentOpacity = 0.15;
+        if (scrollFraction > 0.85) {
+          const fadeFraction = (scrollFraction - 0.85) / 0.15;
+          currentOpacity = 0.15 * (1 - fadeFraction);
+        }
+
+        const largeRotation = scrollFraction * LARGE_GEAR_MAX_ROTATION;
+        const smallRotation = scrollFraction * SMALL_GEAR_MAX_ROTATION;
+
+        if (largeGear) {
+          largeGear.style.transform = `rotate(${largeRotation}deg)`;
+          largeGear.style.opacity = String(currentOpacity);
+        }
+        if (!isMobile && smallGear) {
+          smallGear.style.transform = `rotate(${smallRotation}deg)`;
+          smallGear.style.opacity = String(currentOpacity);
+        }
+      }
+
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
