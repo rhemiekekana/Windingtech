@@ -55,7 +55,17 @@ button, input, textarea{ font: inherit; }
   padding: clamp(40px, 6vw, 84px) 0;
 }
 .u-section--gray{ background: var(--color-gray); }
-.u-grid{ display:grid; gap: 18px; }
+.u-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.u-grid--2{
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+.u-grid--3{
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
 .u-card{
   background: var(--color-white);
   border-radius: var(--radius-lg);
@@ -283,6 +293,8 @@ button, input, textarea{ font: inherit; }
   }
   .nav__item--services.nav__item--open .mega{ display:block; }
   .mega__grid{ grid-template-columns: 1fr; }
+  .u-grid--2,
+  .u-grid--3{ grid-template-columns: 1fr; }
 }
 
 /* Footer */
@@ -538,13 +550,14 @@ button, input, textarea{ font: inherit; }
   overflow:hidden;
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.06);
+  background: #fff;
+  padding: 20px;
 }
 .fleet__title{
-  margin: 0 0 8px;
+  margin: 0 0 15px;
   font-size: clamp(22px, 2.6vw, 34px);
   letter-spacing: -.3px;
-  color: var(--color-white);
+  color: var(--color-jet);
 }
 .fleet__text{
   margin: 0;
